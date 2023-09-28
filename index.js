@@ -1,10 +1,13 @@
 const express = require('express');
+const user = require('./routes/User.router');
 const dbConnect = require('./dbConnect');
 require('dotenv').config();
 
 const app = express();
 
 dbConnect();
+
+app.use('/auth', user);
 
 app.get('/', (req, res) => {
   res.status(200).send({

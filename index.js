@@ -1,6 +1,10 @@
 const express = require('express');
+const dbConnect = require('./dbConnect');
+require('dotenv').config();
 
 const app = express();
+
+dbConnect();
 
 app.get('/', (req, res) => {
   res.status(200).send({

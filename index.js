@@ -7,6 +7,8 @@ const app = express();
 
 dbConnect();
 
+app.use(express.json());
+
 app.use('/auth', user);
 
 app.get('/', (req, res) => {

@@ -1,5 +1,6 @@
 const express = require('express');
 const user = require('./routes/User.router');
+const chat = require('./routes/Chat.router');
 const dbConnect = require('./dbConnect');
 const authenticateToken = require('./middlewares/authenticateToken');
 require('dotenv').config();
@@ -11,10 +12,11 @@ dbConnect();
 app.use(express.json());
 
 app.use('/auth', user);
+app.use('/chat', chat);
 
 const chats = [
   {
-    username: 'jonny47',
+    username: 'jonny.green',
     chat: 'Hello',
   },
   {
